@@ -1,52 +1,67 @@
+<div style='font-size: 14px;'>
+
 # pkg
 
-<div style='font-size: 13px;'>
-
-### パッケージのメリット
+## パッケージのメリット
 - pipでインストール可能
 - Githubで管理可能
 
-### 手順
-##### setup.pyの作成
-```py:setup.py
-from setuptools import setup
+## 手順
+1. リポジトリ作成
+    * パッケージ名は**基本短く、全て小文字**にする。
+    * **読みやすくなるのであれば**、アンダースコアで区切る。（推奨ではない）
+    <br>
 
-setup(
-    name='pkg',
-    version='0.0.1',
-    description='Description',
-    author='annesmithog',
-    license='MIT',
-)
-```
+2. setup.pyの作成 - ([setupの詳細](readme/setup.md))
 
-##### インストール
+    ```python
+    from setuptools import setup
+
+    setup(
+        name='pkg',
+        version='0.0.1',
+        description='Description',
+        author='annesmithog',
+        license='MIT',
+    )
+    ```
+
+3. インストール
+    ```sh
+    pip install -e .
+    ```
+
+4. インストール確認
+    ```sh
+    pip list
+    ```
+
+5. 動作確認
+    ```sh
+    > python
+    ```
+
+    ```sh
+    >>> import pkg
+    >>> pkg.fuck('Test')
+    Fuck Test
+    ```
+
+## その他
+#### テスト用にインストールしたパッケージをアンインストールする
 ```sh
-pip install -e .
+pip uninstall pkg
 ```
 
-##### インストール確認
+#### Githubからインストールする
 ```sh
-pip list
+pip install git+https://github.com/annesmithog/pkg.git
 ```
 
-##### 動作確認
-```sh:Terminal
-> python
+#### テスト実行 (unittest)
+```sh
+python -m unittest discover tests
 ```
-
-```sh:Python Console
->>> import pkg
->>> pkg.fuck('Test')
-Fuck Test
-```
-
-<!-- ### その他
-##### Githubからインストールする
-```sh:Terminal
-pip install 
-``` -->
-
 
 
 </div>
