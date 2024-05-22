@@ -9,6 +9,7 @@
 |version|バージョン|`version='0.0.1'`|
 |description|概要|`description='Description'`|
 |author|著者|`author='annesmithog'`|
+|packages|パッケージ|`packages=find_packages()`|
 |license|ライセンス|`license='MIT'`|
 
 </div>
